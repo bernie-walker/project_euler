@@ -1,29 +1,15 @@
-const isPrime = function(num) {
-  if (num < 2) {
-    return false;
-  }
+const getNthPrime = function (n) {
+  const primes = [2];
+  let num = 3;
 
-  for (let div = num - 1; div >= 2; div--) {
-    if (num % div === 0) {
-      return false;
-    }
-  }
-
-  return true;
-};
-
-const getNthPrime = function(n) {
-  let count = 0;
-  let num = 2;
-  while (true) {
-    if (isPrime(num)) {
-      ++count;
-    }
-    if (count === n) {
-      return num;
+  while (primes.length <= n) {
+    if ((num & 1) === 1 && primes.every((el) => num % el !== 0)) {
+      primes.push(num);
     }
     ++num;
   }
+
+  return primes[n - 1];
 };
 
 console.log(getNthPrime(10001));
