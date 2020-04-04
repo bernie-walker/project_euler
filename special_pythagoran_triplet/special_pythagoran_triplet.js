@@ -1,4 +1,4 @@
-const main = function() {
+const main = function () {
   const sum = 1000;
   for (let i = 1; i < sum / 3; i++) {
     for (let j = i; j < sum / 2; j++) {
@@ -10,4 +10,4 @@ const main = function() {
   }
 };
 
-console.log(main());
+console.log(main().reduce((product, el) => product * el, 1));
